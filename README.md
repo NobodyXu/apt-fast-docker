@@ -2,7 +2,7 @@
 
 Docker image that contains `apt-fast`, which gives images-builder using debian-based distro the following advantage:
 
- - faster packages download speed using `apt-fast`;
+ - faster packages download speed using `apt-fast` which has out-of-box settings;
  - preinstalled `apt-utils` so packages configuration on debian is not delayed;
  - set environment variables `DEBIAN_FRONTEND=noninteractive` to avoid interactive `debconf` configuration.
 

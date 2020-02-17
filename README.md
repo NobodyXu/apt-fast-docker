@@ -22,7 +22,11 @@ For `podman` user, replace `docker` with `podman`.
 ## Build locally
 
 ```shell
+# To build for debian:buster
 docker build --squash -t apt-fast .
+
+# To build for other distros, say ubuntu:bionic
+docker build --squash -t apt-fast --build-arg base=ubuntu:bionic .
 ```
 
 For `podman` user, replace `docker` with `podman`.

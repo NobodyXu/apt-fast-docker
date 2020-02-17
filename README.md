@@ -1,5 +1,8 @@
 # apt-fast-docker
 
+![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/nobodyxu/apt-fast)
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/nobodyxu/apt-fast)
+
 Docker image that contains `apt-fast`, which gives images-builder using debian-based distro the following advantage:
 
  - faster packages download speed using `apt-fast` which has out-of-box settings;

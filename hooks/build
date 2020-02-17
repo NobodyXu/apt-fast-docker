@@ -1,0 +1,3 @@
+#!/bin/bash -ex
+
+time docker build --squash -t $IMAGE_TAG .

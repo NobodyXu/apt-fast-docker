@@ -9,12 +9,16 @@ Docker image that contains `apt-fast`, which gives images-builder using debian-b
  - preinstalled `apt-utils` so packages configuration on debian is not delayed;
  - set environment variables `DEBIAN_FRONTEND=noninteractive` to avoid interactive `debconf` configuration.
 
-Provides `debian:buster` based images on docker hub.
+Provides `debian:buster` and `ubuntu:bionic` based images on docker hub.
 
 ## Pull from docker hub
 
 ```shell
-docker pull nobodyxu/apt-fast
+# To pull for debian:buster
+docker pull nobodyxu/apt-fast:latest-debian-buster
+
+# To pull for ubuntu:bionic
+docker pull nobodyxu/apt-fast:latest-ubuntu-bionic
 ```
 
 For `podman` user, replace `docker` with `podman`.

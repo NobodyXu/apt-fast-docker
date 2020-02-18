@@ -11,4 +11,4 @@ ADD https://raw.githubusercontent.com/ilikenwf/apt-fast/master/apt-fast /usr/loc
 RUN chmod +x /usr/local/sbin/apt-fast
 ADD apt-fast.conf /etc/
 
-ADD rm_apt-fast.sh /usr/local/bin/
+ADD rm_apt-fast.sh /usr/local/sbin/

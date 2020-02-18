@@ -11,6 +11,28 @@ Docker image that contains `apt-fast`, which gives images-builder using debian-b
 
 Provides `debian:buster` and `ubuntu:bionic` based images on docker hub.
 
+## Use this image to build other images
+
+In the `Dockerfile`:
+
+```Dockerfile
+FROM nobodyxu/apt-fast:latest-debian-buster AS base
+
+RUN apt-fast update && apt-fast install -y --no-install-recommends ...
+```
+
+Or
+
+```Dockerfile
+FROM nobodyxu/apt-fast:latest-debian-buster AS apt-fast
+
+FROM base # Any debian-based distro here!
+COPY --from=apt-fast / /
+
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-fast update && apt-fast install -y --no-install-recommends ...
+```
+
 ## Pull from docker hub
 
 ```shell

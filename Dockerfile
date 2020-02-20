@@ -12,3 +12,4 @@ RUN chmod +x /usr/local/sbin/apt-fast
 ADD apt-fast.conf /usr/local/etc/
 
 ADD rm_apt-fast.sh /usr/local/sbin/
+ADD apt-auto /usr/local/sbin/

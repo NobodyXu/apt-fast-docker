@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ -z "$(which aria2c)" ]; then
+    echo aria2c not found, install it:
+    apt-get update
+    apt-get install -y aria2
+    echo
+fi
+
+apt-get update
+exec apt-fast $@

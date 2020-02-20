@@ -18,7 +18,7 @@ In the `Dockerfile`:
 ```Dockerfile
 FROM nobodyxu/apt-fast:latest-debian-buster AS base
 
-RUN apt-fast update && apt-fast install -y --no-install-recommends ...
+RUN apt-auto install -y --no-install-recommends ...
 ```
 
 Or
@@ -27,11 +27,10 @@ Or
 FROM nobodyxu/apt-fast:latest-debian-buster AS apt-fast
 
 FROM base # Any debian-based distro here!
-RUN apt-get update && apt-get install -y aria2c
 COPY --from=apt-fast /usr/local/ /usr/local/
 
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-fast update && apt-fast install -y --no-install-recommends ...
+RUN apt-auto install -y --no-install-recommends ...
 ```
 
 ## Pull from docker hub

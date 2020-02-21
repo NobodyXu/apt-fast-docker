@@ -8,4 +8,11 @@ if [ -z "$(which aria2c)" ]; then
 fi
 
 apt-get update
-exec apt-fast $@
+
+# Use eval to enable lazy evaulation of the arguments
+# Especially usefull when you are doing:
+# 
+#     curl pub_key | apt-key add -
+#     echo deb url all main > /etc/apt/sources.list.d/a.list
+#     apt-auto install -y '$(apt-cache search softwares-from-newly-added-mirror)'
+exec apt-fast $(eval echo $@)

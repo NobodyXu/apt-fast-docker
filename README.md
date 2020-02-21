@@ -31,6 +31,10 @@ COPY --from=apt-fast /usr/local/ /usr/local/
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-auto install -y --no-install-recommends ...
+
+RUN curl pub_key | apt-key add -
+RUN echo deb url all main > /etc/apt/sources.list.d/a.list
+RUN apt-auto install -y '$(apt-cache search softwares-from-newly-added-mirror)'
 ```
 
 ## Pull from docker hub

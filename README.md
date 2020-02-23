@@ -44,18 +44,6 @@ RUN echo deb url all main > /etc/apt/sources.list.d/a.list
 RUN apt-auto install -y '$(apt-cache search softwares-from-newly-added-mirror)'
 ```
 
-## Pull from docker hub
-
-```shell
-# To pull for debian:buster
-docker pull nobodyxu/apt-fast:latest-debian-buster
-
-# To pull for ubuntu:bionic
-docker pull nobodyxu/apt-fast:latest-ubuntu-bionic
-```
-
-For `podman` user, replace `docker` with `podman`.
-
 ## Build locally
 
 ```shell

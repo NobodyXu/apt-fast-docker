@@ -9,14 +9,21 @@ Docker image that contains `apt-fast`, which gives images-builder using debian-b
  - preinstalled `apt-utils` so packages configuration on debian is not delayed;
  - set environment variables `DEBIAN_FRONTEND=noninteractive` to avoid interactive `debconf` configuration.
 
-Provides `debian:buster` and `ubuntu:bionic` based images on docker hub.
+Provides `debian:buster`, `debian:buster-slim` and `ubuntu:bionic` based images on docker hub.
 
 ## Use this image to build other images
 
 In the `Dockerfile`:
 
 ```Dockerfile
+# For debian:buster
 FROM nobodyxu/apt-fast:latest-debian-buster AS base
+
+# For debian:buster-slim
+FROM nobodyxu/apt-fast:latest-debian-buster-slim AS base
+
+# For ubuntu:bionic
+FROM nobodyxu/apt-fast:latest-ubuntu-bionic AS base
 
 RUN apt-auto install -y --no-install-recommends ...
 ```
@@ -24,7 +31,7 @@ RUN apt-auto install -y --no-install-recommends ...
 Or
 
 ```Dockerfile
-FROM nobodyxu/apt-fast:latest-debian-buster AS apt-fast
+FROM nobodyxu/apt-fast:latest-debian-buster-slim AS apt-fast
 
 FROM base # Any debian-based distro here!
 COPY --from=apt-fast /usr/local/ /usr/local/

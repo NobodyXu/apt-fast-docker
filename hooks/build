@@ -2,6 +2,6 @@
 
 source hooks/functions.sh
 
-time docker build --build-arg base=${debian_ver} -t ${IMAGE_NAME}-$(v2t ${debian_ver}) .
-time docker build --build-arg base=${debian_sml} -t ${IMAGE_NAME}-$(v2t ${debian_sml}) .
-time docker build --build-arg base=${ubuntu_ver} -t ${IMAGE_NAME}-$(v2t ${ubuntu_ver}) .
+for base_img in $base_imgs; do
+    time docker build --build-arg base=$base_img -t ${IMAGE_NAME}-$(v2t $base_img)
+done

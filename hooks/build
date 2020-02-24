@@ -3,5 +3,5 @@
 source hooks/functions.sh
 
 for base_img in $base_imgs; do
-    time docker build --build-arg base=$base_img -t ${IMAGE_NAME}-$(v2t $base_img)
+    time docker build --build-arg base=$base_img -t ${IMAGE_NAME}-$(v2t $base_img) .
 done

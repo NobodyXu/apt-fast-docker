@@ -3,5 +3,5 @@
 source hooks/functions.sh
 
 time docker push ${IMAGE_NAME}-$(v2t ${debian_ver})
-time docker push ${IMAGE_NAME}-$(v2t ${debian_sml}) .
+time docker push ${IMAGE_NAME}-$(v2t ${debian_sml})
 time docker push ${IMAGE_NAME}-$(v2t ${ubuntu_ver})
